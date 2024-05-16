@@ -56,19 +56,19 @@ const Footer = () => {
       <div className="w-full container mx-auto flex flex-col items-center">
         <div className="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
           <a href="#" className="uppercase px-3">
-            About Us
+            Chi siamo
           </a>
           <a href="#" className="uppercase px-3">
             Privacy Policy
           </a>
           <a href="#" className="uppercase px-3">
-            Terms & Conditions
+            Termini & Condizioni
           </a>
           <a href="#" className="uppercase px-3">
-            Contact Us
+            Contattaci
           </a>
         </div>
-        <div className="uppercase pb-6">&copy; myblog.com</div>
+        <div className="uppercase pb-6">&copy; progettidadaumpa.it</div>
       </div>
     </footer>
   );
