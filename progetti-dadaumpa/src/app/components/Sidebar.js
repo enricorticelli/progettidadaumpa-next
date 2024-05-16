@@ -7,9 +7,9 @@ const Sidebar = () => {
       <div className="w-full bg-white shadow flex flex-col my-4 p-6">
         <p className="text-xl font-semibold pb-5">Iscriviti alla Newsletter!</p>
         <p className="pb-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-          mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In
-          hac habitasse platea dictumst.
+          Iscriviti alla nostra newsletter per essere sempre aggiornato sugli
+          spettacoli teatrali più imperdibili della stagione. Unisciti a noi per
+          vivere l'arte e la magia del teatro in ogni momento!
         </p>
         <a
           href="#"
