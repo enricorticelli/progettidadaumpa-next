@@ -2,6 +2,10 @@ import Image from "next/image";
 import { formatDate } from "@/app/utils";
 
 export default function Articles({ article }) {
+  if (!article) {
+    return null; // or you can render a placeholder or error message
+  }
+
   return (
     <section className="w-full md:w-2/3 flex flex-col items-center px-3">
       <article className="flex flex-col shadow my-4">
