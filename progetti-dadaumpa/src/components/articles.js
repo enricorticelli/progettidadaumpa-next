@@ -3,6 +3,8 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
+import { formatDate } from "@/app/utils";
+
 export default function Articles({ articles }) {
   return (
     <section className="w-full md:w-2/3 flex flex-col items-center px-3">
@@ -13,30 +15,30 @@ export default function Articles({ articles }) {
               <Image
                 src={article.immagine_url}
                 width={1000}
-                height={300}
-                style={{ maxHeight: "300px", objectFit: "cover" }}
+                height={200}
+                style={{ maxHeight: "200px", objectFit: "cover" }}
               />
             </span>
           </Link>
           <div className="bg-white flex flex-col justify-start p-6">
-            <Link href={`/articles/${article.id}`}>
-              <span className="text-polynesian-blue text-sm font-bold uppercase pb-4">
+            <Link href={`/articles/${article.id}`} class="pb-4">
+              <span className="text-polynesian-blue text-sm font-bold uppercase">
                 {article.sottotitolo}
               </span>
             </Link>
-            <Link href={`/articles/${article.id}`}>
-              <span className="text-3xl font-bold hover:text-gray-700 pb-4">
+            <Link href={`/articles/${article.id}`} class="pb-1">
+              <span className="text-3xl font-bold hover:text-gray-700">
                 {article.titolo}
               </span>
             </Link>
-            <p className="text-sm pb-3">
+            <p className="text-sm py-3">
               Di{" "}
               <Link href={`/articles/${article.id}`}>
                 <span className="font-semibold hover:text-gray-800">
                   {article.autore}
                 </span>
               </Link>
-              , Pubblicato il {article.data_pubblicazione}
+              , Pubblicato il {formatDate(article.data_pubblicazione)}
             </p>
             <Link href={`/articles/${article.id}`}>
               <div
@@ -46,9 +48,12 @@ export default function Articles({ articles }) {
               {/* Render HTML content safely */}
             </Link>
             <Link href={`/articles/${article.id}`}>
-              <span className="uppercase text-gray-800 hover:text-telemagenta">
+              <span className="uppercase text-gray-800 hover:text-telemagenta ">
                 Continua la lettura{" "}
-                <FontAwesomeIcon icon={faArrowRight} className="ml-2" />
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="ml-2 hover:scale-125"
+                />
               </span>
             </Link>
           </div>

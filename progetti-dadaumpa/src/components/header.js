@@ -54,12 +54,12 @@ const Header = () => {
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-polynesian-blue rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
               Spettacoli
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-saffron rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
               Artisti
             </a>
             <a
@@ -69,12 +69,12 @@ const Header = () => {
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-polynesian-blue rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
               Contatti
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-saffron rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
               News
             </a>
           </div>

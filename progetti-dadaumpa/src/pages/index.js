@@ -1,32 +1,50 @@
-import React, { useEffect, useState } from "react";
-import Layout from "../components/layout";
-import Sidebar from "../components/sidebar";
-import Articles from "../components/articles";
+import React from "react";
+import {
+  useQuery,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
-export default function Home() {
-  const [articles, setArticles] = useState([]);
+import Layout from "@/components/layout";
+import Sidebar from "@/components/sidebar";
+import Articles from "@/components/articles";
+import Skeleton from "@/components/skeleton";
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch("/api/fetchArticles");
-        if (!response.ok) {
-          throw new Error("Failed to fetch articles");
-        }
-        const data = await response.json();
-        setArticles(data.articles);
-      } catch (error) {
-        console.error("Error fetching articles:", error);
+const queryClient = new QueryClient();
+
+function Home() {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["fetchArticles"],
+    queryFn: async () => {
+      const response = await fetch("/api/fetchArticles");
+      if (!response.ok) {
+        throw new Error("Failed to fetch articles");
       }
-    };
+      return response.json();
+    },
+  });
 
-    fetchArticles();
-  }, []);
+  if (isLoading || error) {
+    return (
+      <Layout>
+        <Skeleton />
+        <Sidebar />
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
-      <Articles articles={articles} />
+      <Articles articles={data.articles} />
       <Sidebar />
     </Layout>
+  );
+}
+
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Home />
+    </QueryClientProvider>
   );
 }
