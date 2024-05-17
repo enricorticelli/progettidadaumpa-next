@@ -17,7 +17,7 @@ const Header = () => {
           backgroundImage: 'url("/images/banner.gif")',
         }}>
         <div className="flex flex-col items-center py-28">
-          <a className="font-bold text-gray-800 hover:text-gray-700" href="#">
+          <a className="font-bold text-gray-800 hover:text-gray-700" href="/">
             <Image
               src="/images/logo.png"
               width={300}
@@ -48,7 +48,7 @@ const Header = () => {
           } w-full flex-grow sm:flex sm:items-center sm:w-auto`}>
           <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
             <a
-              href="#"
+              href="/"
               className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
               Home
             </a>
