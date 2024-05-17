@@ -6,7 +6,7 @@ import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({ subsets: ["latin"] });
 
-export default function Layout({ children }) {
+export default function Layout({ children, artists }) {
   return (
     <>
       <Head>
@@ -19,7 +19,7 @@ export default function Layout({ children }) {
       <main className={`container mx-auto flex flex-wrap ${mont.className}`}>
         <Header />
         {children}
-        <Footer />
+        <Footer artists={artists} />
       </main>
     </>
   );

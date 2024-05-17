@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-const Sidebar = () => {
+const Sidebar = ({ artists }) => {
+  const artistImages = artists.slice(0, 3).map((artist) => artist.img1);
+
   return (
     <aside className="w-full md:w-1/3 flex flex-col items-center px-3">
       <div className="w-full bg-white shadow flex flex-col my-4 p-6">
@@ -20,44 +22,16 @@ const Sidebar = () => {
 
       <div className="w-full bg-white shadow flex flex-col my-4 p-6">
         <p className="text-xl font-semibold pb-5">Artisti</p>
-        <div className="grid grid-cols-3 gap-3">
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=2"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=3"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=4"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=5"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=6"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          {/* Aggiungi altre immagini di Instagram qui */}
+        <div className="grid grid-cols-1 gap-3">
+          {artistImages.map((image, index) => (
+            <div key={index} className="w-full h-80 hover:opacity-75">
+              <img
+                className="w-full h-80 object-cover"
+                src={image}
+                alt="Artist image"
+              />
+            </div>
+          ))}
         </div>
         <a
           href="#"
@@ -73,72 +47,6 @@ const Sidebar = () => {
           mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In
           hac habitasse platea dictumst.
         </p>
-      </div>
-
-      <div className="w-full bg-white shadow flex flex-col my-4 p-6">
-        <p className="text-xl font-semibold pb-5">Instagram</p>
-        <div className="grid grid-cols-3 gap-3">
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=2"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=3"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=4"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=5"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=6"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=7"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=8"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          <Image
-            src="https://source.unsplash.com/collection/1346951/150x150?sig=9"
-            width={150}
-            height={150}
-            className="hover:opacity-75"
-          />
-          {/* Aggiungi altre immagini di Instagram qui */}
-        </div>
-        <a
-          href="#"
-          className="w-full bg-gradient-to-r from-polynesian-blue to-telemagenta text-white font-bold text-sm uppercase rounded hover:bg-gradient-to-br flex items-center justify-center px-2 py-3 mt-6">
-          <i className="fab fa-instagram mr-2"></i> Follow @dgrzyb
-        </a>
       </div>
     </aside>
   );

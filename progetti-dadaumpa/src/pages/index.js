@@ -13,7 +13,26 @@ import Skeleton from "@/components/skeleton";
 const queryClient = new QueryClient();
 
 function Home() {
-  const { data, error, isLoading } = useQuery({
+  const {
+    data: artistData,
+    error: artistError,
+    isLoading: artistIsLoading,
+  } = useQuery({
+    queryKey: ["fetchArtists"],
+    queryFn: async () => {
+      const response = await fetch("/api/fetchArtists");
+      if (!response.ok) {
+        throw new Error("Failed to fetch artists");
+      }
+      return response.json();
+    },
+  });
+
+  const {
+    data: articleData,
+    error: articleError,
+    isLoading: articleIsLoading,
+  } = useQuery({
     queryKey: ["fetchArticles"],
     queryFn: async () => {
       const response = await fetch("/api/fetchArticles");
@@ -24,19 +43,19 @@ function Home() {
     },
   });
 
-  if (isLoading || error) {
+  if (artistIsLoading || artistError || articleIsLoading || articleError) {
     return (
-      <Layout>
+      <Layout artists={[]}>
         <Skeleton />
-        <Sidebar />
+        <Sidebar artists={[]} />
       </Layout>
     );
   }
 
   return (
-    <Layout>
-      <Articles articles={data.articles} />
-      <Sidebar />
+    <Layout artists={artistData.artists}>
+      <Articles articles={articleData.articles} />
+      <Sidebar artists={artistData.artists} />
     </Layout>
   );
 }

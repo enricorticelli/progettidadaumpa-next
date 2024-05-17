@@ -14,7 +14,11 @@ import Article from "@/components/article";
 const queryClient = new QueryClient();
 
 function ArticleContent({ idArticolo }) {
-  const { data, error, isLoading } = useQuery({
+  const {
+    data: articleData,
+    error: articleError,
+    isLoading: articleIsLoading,
+  } = useQuery({
     queryKey: ["fetchArticle", idArticolo],
     queryFn: async () => {
       const response = await fetch(`/api/fetchArticle?id=${idArticolo}`);
@@ -26,18 +30,35 @@ function ArticleContent({ idArticolo }) {
     enabled: !!idArticolo, // Only run the query if idArticolo is available
   });
 
-  if (isLoading || error) {
+  const {
+    data: artistData,
+    error: artistError,
+    isLoading: artistIsLoading,
+  } = useQuery({
+    queryKey: ["fetchArtists"],
+    queryFn: async () => {
+      const response = await fetch("/api/fetchArtists");
+      if (!response.ok) {
+        throw new Error("Failed to fetch artists");
+      }
+      return response.json();
+    },
+  });
+
+  if (artistIsLoading || artistError || articleIsLoading || articleError) {
     return (
-      <>
+      <Layout artists={[]}>
         <Skeleton />
-      </>
+        <Sidebar artists={[]} />
+      </Layout>
     );
   }
 
   return (
-    <>
-      <Article article={data} />
-    </>
+    <Layout artists={artistData.artists}>
+      <Article article={articleData} />
+      <Sidebar artists={artistData.artists} />
+    </Layout>
   );
 }
 
@@ -46,11 +67,8 @@ export default function ArticlePage() {
   const idArticolo = router.query.id;
 
   return (
-    <Layout>
-      <QueryClientProvider client={queryClient}>
-        <ArticleContent idArticolo={idArticolo} />
-      </QueryClientProvider>
-      <Sidebar />
-    </Layout>
+    <QueryClientProvider client={queryClient}>
+      <ArticleContent idArticolo={idArticolo} />
+    </QueryClientProvider>
   );
 }

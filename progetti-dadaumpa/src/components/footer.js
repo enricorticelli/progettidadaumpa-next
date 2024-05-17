@@ -1,55 +1,75 @@
-"use client";
+import React, { useState, useEffect } from "react";
 
-import React, { useState } from "react";
+const Footer = ({ artists }) => {
+  const [artistImages, setArtistImages] = useState([]);
 
-const Footer = () => {
+  useEffect(() => {
+    // Genera le immagini casuali una volta sola
+    const images = artists.map((artist) => {
+      const randomIndex = Math.floor(Math.random() * 4); // Genera un numero casuale tra 0 e 3
+      const image = (() => {
+        switch (randomIndex) {
+          case 0:
+            return artist.img1;
+          case 1:
+            return artist.img2;
+          case 2:
+            return artist.img3;
+          case 3:
+            return artist.img4;
+          default:
+            return artist.img1; // Ritorna img1 come fallback
+        }
+      })();
+      return { image, nome: artist.nome }; // Ritorna un oggetto con immagine e nome
+    });
+
+    setArtistImages(images);
+  }, [artists]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [
-    "https://source.unsplash.com/collection/1346951/800x800?sig=1",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=2",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=3",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=4",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=5",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=6",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=7",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=8",
-    "https://source.unsplash.com/collection/1346951/800x800?sig=9",
-  ];
 
   const increment = () => {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex === images.length - 6) {
-        return 0;
-      } else {
-        return prevIndex + 1;
-      }
-    });
+    setCurrentIndex((prevIndex) =>
+      prevIndex >= 3 ? prevIndex : prevIndex + 1
+    );
   };
 
   const decrement = () => {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex === 0) {
-        return images.length - 6;
-      } else {
-        return prevIndex - 1;
-      }
-    });
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
   };
 
   return (
     <footer className="w-full border-t bg-white pb-12">
-      <div className="relative w-full flex items-center invisible md:visible md:pb-12">
-        {images.slice(currentIndex, currentIndex + 6).map((image, index) => (
-          <img key={index} className="w-1/6 hover:opacity-75" src={image} />
-        ))}
+      <div className="relative w-full flex items-center invisible md:visible md:pb-12 overflow-hidden">
+        <div
+          className="flex transition-transform duration-500"
+          style={{
+            transform: `translateX(-${currentIndex * (100 / 6)}%)`, // Utilizziamo 3 in base al numero di immagini visibili
+          }}>
+          {artistImages.map((artist, index) => (
+            <div key={index} className="w-80 h-80 relative">
+              <img
+                className="w-80 h-80 object-cover"
+                src={artist.image}
+                alt={artist.nome}
+              />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-75 bg-black bg-opacity-50 text-white text-md font-bold">
+                {artist.nome}
+              </div>
+            </div>
+          ))}
+        </div>
         <button
-          className="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
-          onClick={decrement}>
+          className="absolute bg-polynesian-blue hover:bg-telemagenta text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
+          onClick={decrement}
+          disabled={currentIndex === 0}>
           &#8592;
         </button>
         <button
-          className="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
-          onClick={increment}>
+          className="absolute right-0 bg-polynesian-blue hover:bg-telemagenta text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
+          onClick={increment}
+          disabled={currentIndex >= 3}>
           &#8594;
         </button>
       </div>
@@ -112,7 +132,6 @@ const Footer = () => {
             Contattaci
           </a>
         </div>
-
         <div className="pb-6 text-xs">Sito realizzato da Enrico Corticelli</div>
       </div>
     </footer>

@@ -3,7 +3,9 @@ import { sql } from "@vercel/postgres";
 export default async function handler(request, response) {
   try {
     let articles = [];
-    const result = await sql`
+
+    // Query per gli articoli
+    const articlesResult = await sql`
       SELECT id, titolo, sottotitolo, 
       CASE 
         WHEN LENGTH(contenuto) <= 100 THEN contenuto
@@ -13,7 +15,8 @@ export default async function handler(request, response) {
       FROM articoli
       ORDER BY data_pubblicazione DESC;
     `;
-    articles = result.rows;
+    articles = articlesResult.rows;
+
     return response.status(200).json({ articles });
   } catch (error) {
     return response.status(500).json({ error: error.message });
