@@ -16,13 +16,13 @@ const Header = () => {
         style={{
           backgroundImage: 'url("/images/banner.gif")',
         }}>
-        <div className="flex flex-col items-center py-28">
-          <a className="font-bold text-gray-800 hover:text-gray-700" href="/">
+        <div className="flex flex-col items-center py-28  ">
+          <a className="font-bold text-gray-800 hover:text-gray-700 " href="/">
             <Image
               src="/images/logo.png"
               width={300}
               height={300}
-              className="hover:opacity-75"
+              className="hover:scale-110 transition-all duration-300"
             />
           </a>
         </div>
@@ -49,32 +49,32 @@ const Header = () => {
           <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
             <a
               href="/"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
               Home
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
               Spettacoli
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
               Artisti
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
               Chi Siamo
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
               Contatti
             </a>
             <a
               href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2">
+              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
               News
             </a>
           </div>

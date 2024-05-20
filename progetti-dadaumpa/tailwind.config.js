@@ -21,6 +21,13 @@ module.exports = {
         licorice: "#1F0E10ff",
         "polynesian-blue": "#0B4C91ff",
       },
+      backgroundSize: {
+        "size-200": "200% 200%",
+      },
+      backgroundPosition: {
+        "pos-0": "0% 0%",
+        "pos-100": "100% 100%",
+      },
     },
   },
   plugins: [],

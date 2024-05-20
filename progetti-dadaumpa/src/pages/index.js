@@ -8,7 +8,8 @@ import {
 import Layout from "@/components/layout";
 import Sidebar from "@/components/sidebar";
 import Articles from "@/components/articles";
-import Skeleton from "@/components/skeleton";
+import ArticlesSkeleton from "@/components/skeletons/articles-skeleton";
+import SidebarSkeleton from "@/components/skeletons/sidebar-skeleton";
 
 const queryClient = new QueryClient();
 
@@ -46,8 +47,8 @@ function Home() {
   if (artistIsLoading || artistError || articleIsLoading || articleError) {
     return (
       <Layout artists={[]}>
-        <Skeleton />
-        <Sidebar artists={[]} />
+        <ArticlesSkeleton />
+        <SidebarSkeleton />
       </Layout>
     );
   }

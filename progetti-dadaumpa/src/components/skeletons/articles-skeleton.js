@@ -1,4 +1,4 @@
-export default function Loading() {
+export default function ArticlesSkeleton() {
   return (
     <section className="w-full md:w-2/3 flex flex-col items-center px-3">
       <article className="min-w-full flex flex-col shadow my-4 animate-pulse">
