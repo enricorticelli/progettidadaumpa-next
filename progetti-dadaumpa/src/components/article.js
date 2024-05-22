@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { formatDate } from "@/app/utils";
-import xss from "xss";
 
 export default function Articles({ article }) {
   if (!article) {
@@ -31,7 +30,7 @@ export default function Articles({ article }) {
           <p
             className="pb-3"
             dangerouslySetInnerHTML={{
-              __html: xss(article.contenuto),
+              __html: article.contenuto,
             }}></p>
         </div>
       </article>
