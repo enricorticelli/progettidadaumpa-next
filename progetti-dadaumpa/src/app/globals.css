@@ -22,4 +22,20 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .text-dec-1 {
+    @apply underline decoration-telemagenta font-bold text-telemagenta;
+  }
+
+  .text-dec-2 {
+    @apply font-bold relative;
+    color: transparent;
+    background-image: linear-gradient(to right, #0b4c91ff, #cc1d6eff);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .text-dec-3 {
+    @apply underline decoration-polynesian-blue font-bold text-polynesian-blue;
+  }
 }

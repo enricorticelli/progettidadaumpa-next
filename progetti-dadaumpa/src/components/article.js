@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { formatDate } from "@/app/utils";
+import sanitizeHtml from "sanitize-html";
 
 export default function Articles({ article }) {
   if (!article) {
@@ -13,7 +14,7 @@ export default function Articles({ article }) {
           src={article.immagine_url}
           width={1000}
           height={300}
-          style={{ maxHeight: "300px", objectFit: "cover" }}
+          style={{ maxHeight: "500px", objectFit: "cover" }}
         />
         <div className="bg-white flex flex-col justify-start p-6">
           <span className="text-polynesian-blue text-sm font-bold uppercase pb-4">
@@ -29,7 +30,9 @@ export default function Articles({ article }) {
           </p>
           <p
             className="pb-3"
-            dangerouslySetInnerHTML={{ __html: article.contenuto }}></p>
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(article.contenuto),
+            }}></p>
         </div>
       </article>
     </section>

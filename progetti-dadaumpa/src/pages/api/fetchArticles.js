@@ -13,6 +13,7 @@ export default async function handler(request, response) {
       END AS contenuto,
       autore, immagine_url, data_pubblicazione
       FROM articoli
+      WHERE attivo = true
       ORDER BY data_pubblicazione DESC;
     `;
     articles = articlesResult.rows;

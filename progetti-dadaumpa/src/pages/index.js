@@ -55,7 +55,7 @@ function Home() {
 
   return (
     <Layout artists={artistData.artists}>
-      <Articles articles={articleData.articles} />
+      <Articles articles={articleData.articles} isHome={true} />
       <Sidebar artists={artistData.artists} />
     </Layout>
   );

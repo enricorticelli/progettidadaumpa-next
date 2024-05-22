@@ -10,9 +10,8 @@ export default function Layout({ children, artists }) {
   return (
     <>
       <Head>
-        {" "}
         <title>Progetti Dadaumpa</title>
-        <meta name="description" content="Compagnia teatrale a Bologna" />{" "}
+        <meta name="description" content="Compagnia teatrale a Bologna" />
         {/* Add meta tags */}
         {/* Add any other meta tags or link tags as needed */}
       </Head>
