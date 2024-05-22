@@ -26,15 +26,13 @@ export default function Blog({ articles }) {
               className="w-full md:w-1/3 flex flex-col items-center md:px-3 mb-4">
               <article className="flex flex-col shadow">
                 <Link href={`/articles/${article.id}`}>
-                  <span className="hover:opacity-75">
-                    <div className="relative w-full h-300px overflow-hidden">
-                      <Image
-                        src={article.immagine_url}
-                        layout="fill"
-                        objectFit="cover"
-                        alt={article.titolo}
-                      />
-                    </div>
+                  <span className="hover:opacity-90">
+                    <Image
+                      src={article.immagine_url}
+                      width={1000}
+                      height={200}
+                      className="transition-all duration-300 ease-in-out max-h-[300px] object-cover"
+                    />
                   </span>
                 </Link>
                 <div className="bg-white flex flex-col justify-start p-6">

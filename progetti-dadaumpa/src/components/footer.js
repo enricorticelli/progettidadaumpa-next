@@ -59,7 +59,7 @@ const Footer = ({ artists }) => {
                 src={artist.image}
                 alt={artist.nome}
               />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-75 bg-black bg-opacity-50 text-white text-md font-bold transition-all duration-200 cursor-pointer">
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-90 bg-black bg-opacity-50 text-white text-md font-bold transition-all duration-200 cursor-pointer">
                 {artist.nome}
               </div>
             </div>

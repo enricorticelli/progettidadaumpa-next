@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { formatDate } from "@/app/utils";
+import Link from "next/link";
 
 export default function Articles({ article }) {
   if (!article) {
@@ -12,8 +13,8 @@ export default function Articles({ article }) {
         <Image
           src={article.immagine_url}
           width={1000}
-          height={300}
-          style={{ maxHeight: "500px", objectFit: "cover" }}
+          height={200}
+          className="transition-all duration-300 ease-in-out object-cover"
         />
         <div className="bg-white flex flex-col justify-start p-6">
           <span className="text-polynesian-blue text-sm font-bold uppercase pb-4">
@@ -34,6 +35,15 @@ export default function Articles({ article }) {
             }}></p>
         </div>
       </article>
+      <div className="flex justify-center w-full mb-4">
+        <Link href="/articles" legacyBehavior>
+          <a className="w-full flex items-center justify-center p-4 rounded transition-all duration-500 relative group">
+            <p className="text-telemagenta font-bold text-sm uppercase transition-all duration-500 hover:scale-110 hover:underline hover:text-polynesian-blue">
+              Visualizza tutti gli articoli
+            </p>
+          </a>
+        </Link>
+      </div>
     </section>
   );
 }

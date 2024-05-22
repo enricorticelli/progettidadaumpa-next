@@ -73,9 +73,9 @@ const Header = () => {
               Contatti
             </a>
             <a
-              href="#"
+              href="/articles"
               className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
-              News
+              Blog
             </a>
           </div>
         </div>

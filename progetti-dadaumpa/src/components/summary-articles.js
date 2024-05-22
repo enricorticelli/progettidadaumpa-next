@@ -8,19 +8,21 @@ import { formatDate } from "@/app/utils";
 export default function Articles({ articles }) {
   return (
     <section className="w-full md:w-2/3 flex flex-col items-center px-3">
-      {articles.slice(0, 3).map((article) => (
-        <article key={article.id} className="flex flex-col shadow my-4">
-          <Link href={`/articles/${article.id}`}>
-            <span className="hover:opacity-75">
+      {articles.slice(0, 5).map((article) => (
+        <article
+          key={article.id}
+          className="flex flex-col md:flex-row shadow my-4">
+          <Link href={`/articles/${article.id}`} className="flex-1">
+            <div className="hover:opacity-90 h-full">
               <Image
                 src={article.immagine_url}
                 width={1000}
                 height={200}
-                className="transition-all duration-300 ease-in-out max-h-[300px] hover:max-h-[400px] object-cover"
+                className="w-full h-full max-w-100px object-cover"
               />
-            </span>
+            </div>
           </Link>
-          <div className="bg-white flex flex-col justify-start p-6">
+          <div className="bg-white flex flex-col justify-start p-6 flex-1">
             <Link href={`/articles/${article.id}`} className="pb-4">
               <span className="text-polynesian-blue text-sm font-bold uppercase">
                 {article.sottotitolo}
