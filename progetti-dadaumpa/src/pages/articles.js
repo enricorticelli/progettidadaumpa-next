@@ -6,8 +6,8 @@ import {
 } from "@tanstack/react-query";
 
 import Layout from "@/components/layout";
-import Sidebar from "@/components/sidebar";
-import Articles from "@/components/summary-articles";
+import Blog from "@/components/blog";
+
 import ArticlesSkeleton from "@/components/skeletons/articles-skeleton";
 import SidebarSkeleton from "@/components/skeletons/sidebar-skeleton";
 
@@ -56,8 +56,7 @@ function Home() {
 
   return (
     <Layout artists={artistData.artists}>
-      <Articles articles={articleData.articles} />
-      <Sidebar artists={artistData.artists} />
+      <Blog articles={articleData.articles} />
     </Layout>
   );
 }

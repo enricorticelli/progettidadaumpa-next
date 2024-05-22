@@ -2,18 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import sanitizeHtml from "sanitize-html";
+import xss from "xss";
 
 import { formatDate } from "@/app/utils";
 
-export default function Articles({ articles, isHome }) {
-  if (isHome) {
-    articles = articles.slice(0, 3);
-  }
-
+export default function Articles({ articles }) {
   return (
     <section className="w-full md:w-2/3 flex flex-col items-center px-3">
-      {articles.map((article) => (
+      {articles.slice(0, 3).map((article) => (
         <article key={article.id} className="flex flex-col shadow my-4">
           <Link href={`/articles/${article.id}`}>
             <span className="hover:opacity-75">
@@ -21,7 +17,7 @@ export default function Articles({ articles, isHome }) {
                 src={article.immagine_url}
                 width={1000}
                 height={200}
-                className="transition-all duration-300 ease-in-out max-h-[300px] hover:max-h-[500px] object-cover"
+                className="transition-all duration-300 ease-in-out max-h-[300px] hover:max-h-[400px] object-cover"
               />
             </span>
           </Link>
@@ -49,7 +45,7 @@ export default function Articles({ articles, isHome }) {
               <div
                 className="pb-6"
                 dangerouslySetInnerHTML={{
-                  __html: sanitizeHtml(article.contenuto),
+                  __html: xss(article.contenuto),
                 }}
               />
               {/* Render HTML content safely */}
@@ -66,6 +62,15 @@ export default function Articles({ articles, isHome }) {
           </div>
         </article>
       ))}
+      <div className="flex justify-center w-full mb-4">
+        <Link href="/articles" legacyBehavior>
+          <a className="w-full flex items-center justify-center p-4 rounded transition-all duration-500 relative group">
+            <p className="text-telemagenta font-bold text-sm uppercase transition-all duration-500 hover:scale-110 hover:underline hover:text-polynesian-blue">
+              Visualizza tutti gli articoli
+            </p>
+          </a>
+        </Link>
+      </div>
     </section>
   );
 }

@@ -2,6 +2,7 @@
   "dependencies": {
     "@vercel/analytics": "^1.2.2",
     "lottie-react": "^2.4.0",
-    "sanitize-html": "^2.13.0"
+    "next-auth": "^4.24.7",
+    "xss": "^1.0.15"
   }
 }

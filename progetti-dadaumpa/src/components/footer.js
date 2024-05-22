@@ -46,7 +46,7 @@ const Footer = ({ artists }) => {
 
   return (
     <footer className="w-full border-t bg-white">
-      <div className="relative w-full flex items-center md:pb-12 overflow-hidden ">
+      <div className="relative w-full flex items-center md:pb-12 overflow-hidden hidden md:flex">
         <div
           className="flex transition-transform duration-500"
           style={{
@@ -78,7 +78,7 @@ const Footer = ({ artists }) => {
           &#8594;
         </button>
       </div>
-      <div className="w-full container mx-auto flex flex-col items-center ">
+      <div className="w-full container mx-auto flex flex-col items-center pt-8 md:pt-0">
         <div className="flex flex-row text-center py-2 space-y-0 space-x-4">
           <a
             href="#!"
