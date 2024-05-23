@@ -17,7 +17,7 @@ export default function Blog({ articles }) {
   }, []);
 
   return (
-    <section className="w-full px-3">
+    <section className="w-full px-3 pt-4">
       {chunkedArticles.map((row, rowIndex) => (
         <div key={rowIndex} className="flex flex-col md:flex-row">
           {row.map((article) => (
