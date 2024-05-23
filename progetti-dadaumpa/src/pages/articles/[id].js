@@ -49,7 +49,7 @@ function ArticleContent({ idArticolo }) {
 
   if (artistIsLoading || artistError || articleIsLoading || articleError) {
     return (
-      <Layout artists={[]}>
+      <Layout artists={[]} isHome={false}>
         <ArticlesSkeleton />
         <SidebarSkeleton />
       </Layout>
@@ -57,7 +57,7 @@ function ArticleContent({ idArticolo }) {
   }
 
   return (
-    <Layout artists={artistData.artists}>
+    <Layout artists={artistData.artists} isHome={false}>
       <Article article={articleData} />
       <Sidebar artists={artistData.artists} />
     </Layout>

@@ -47,7 +47,7 @@ function Home() {
 
   if (artistIsLoading || artistError || articleIsLoading || articleError) {
     return (
-      <Layout artists={[]}>
+      <Layout artists={[]} isHome={false}>
         <ArticlesSkeleton />
         <SidebarSkeleton />
       </Layout>
@@ -55,7 +55,7 @@ function Home() {
   }
 
   return (
-    <Layout artists={artistData.artists}>
+    <Layout artists={artistData.artists} isHome={false}>
       <Blog articles={articleData.articles} />
     </Layout>
   );

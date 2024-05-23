@@ -6,7 +6,7 @@ import { Montserrat } from "next/font/google";
 
 const mont = Montserrat({ subsets: ["latin"] });
 
-export default function Layout({ children, artists }) {
+export default function Layout({ children, artists, isHome }) {
   return (
     <>
       <Head>
@@ -16,7 +16,11 @@ export default function Layout({ children, artists }) {
         {/* Add any other meta tags or link tags as needed */}
       </Head>
       <main className={`container mx-auto flex flex-wrap ${mont.className}`}>
-        <Header />
+        <Header isHome={isHome} />
+        {/* Spacer for non-home pages */}
+        {!isHome && (
+          <div className="container mx-auto flex flex-wrap h-20"></div>
+        )}
         {children}
         <Footer artists={artists} />
       </main>
