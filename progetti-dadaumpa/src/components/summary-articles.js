@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import sanitizeHtml from "sanitize-html";
 
 import { formatDate } from "@/app/utils";
 
@@ -46,7 +47,7 @@ export default function Articles({ articles }) {
               <div
                 className="pb-6"
                 dangerouslySetInnerHTML={{
-                  __html: article.contenuto,
+                  __html: sanitizeHtml(article.contenuto),
                 }}
               />
               {/* Render HTML content safely */}

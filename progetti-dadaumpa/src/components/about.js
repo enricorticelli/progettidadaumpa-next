@@ -4,34 +4,23 @@ export default function About() {
       <p className="text-xl font-semibold pb-5">Chi siamo</p>
       <p className="pb-2">
         <p>
-          Siamo la <span className="text-dec-2">Progetti DADAUMPA Srl</span>,
-          un'impresa teatrale che dal 1984 anima la scena del teatro italiano e
-          internazionale.
-        </p>
-        <p>
-          Con una ricca storia di produzione e{" "}
-          <span className="text-dec-1">
-            distribuzione di spettacoli comici e comico-musicali
-          </span>
-          , ci dedichiamo con passione e competenza a farvi sorridere e
-          riflettere. Fin dai nostri esordi, abbiamo scelto di esplorare la
-          comicità in tutte le sue forme e sfumature, crescendo e maturando nel
-          tempo.
-        </p>
-        <p>
-          Questo ci ha permesso di ampliare la nostra offerta artistica e di
-          avventurarci in nuovi territori dello{" "}
-          <span className="text-dec-2">spettacolo d'arte</span>, con la{" "}
-          <span className="text-dec-2">danza</span> come ultima aggiunta al
-          nostro repertorio.
-        </p>
-        <p>
-          Negli anni, abbiamo collaborato con artisti e compagnie di grande
-          rilievo e oggi continuiamo a sviluppare il nostro lavoro con la stessa
-          attenzione alla qualità che ci contraddistingue. Siamo pronti a
-          offrirvi sempre{" "}
-          <span className="text-dec-3">il meglio del teatro</span>, con lo
-          stesso entusiasmo di sempre.
+          <p>
+            Siamo la <span class="text-dec-2">Progetti DADAUMPA Srl</span>,
+            attivi nel mondo del teatro dal <span class="text-dec-1">1984</span>
+            .
+          </p>{" "}
+          <p>
+            Produciamo e distribuiamo spettacoli{" "}
+            <span class="text-dec-2">comici</span>,{" "}
+            <span class="text-dec-2">comico-musicali</span> e di{" "}
+            <span class="text-dec-2">danza</span>, esplorando ogni sfumatura
+            della <span class="text-dec-2">comicità</span> e dell'arte del
+            movimento.
+          </p>
+          Collaboriamo con artisti e compagnie di prestigio per garantire sempre
+          alta qualità nelle nostre produzioni. Con passione e competenza,
+          continuiamo a offrirvi{" "}
+          <span class="text-dec-3">il meglio del teatro</span>.
         </p>
       </p>
       <button className="w-full shadow flex flex-col items-center justify-center my-4 p-4 rounded transition-all duration-500 bg-gradient-to-t to-telemagenta from-polynesian-blue bg-size-200 bg-pos-0 hover:bg-pos-100 relative group">

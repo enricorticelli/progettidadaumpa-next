@@ -3,6 +3,7 @@ import Header from "./header";
 import Footer from "./footer";
 import Head from "next/head";
 import { Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const mont = Montserrat({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function Layout({ children, artists, isHome }) {
         {children}
         <Footer artists={artists} />
       </main>
+      <Analytics />
     </>
   );
 }

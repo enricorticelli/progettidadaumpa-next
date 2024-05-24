@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { formatDate } from "@/app/utils";
 import Link from "next/link";
+import sanitizeHtml from "sanitize-html";
 
 export default function Articles({ article }) {
   if (!article) {
@@ -31,7 +32,7 @@ export default function Articles({ article }) {
           <p
             className="pb-3"
             dangerouslySetInnerHTML={{
-              __html: article.contenuto,
+              __html: sanitizeHtml(article.contenuto),
             }}></p>
         </div>
       </article>
