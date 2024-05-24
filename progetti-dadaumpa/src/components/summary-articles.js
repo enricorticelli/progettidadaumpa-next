@@ -8,13 +8,13 @@ import { formatDate } from "@/app/utils";
 
 export default function Articles({ articles }) {
   return (
-    <section className="w-full md:w-2/3 flex flex-col items-center px-3">
-      {articles.slice(0, 5).map((article) => (
+    <section className="w-full md:w-2/3 flex flex-col items-center pr-3 py-3 pl-8">
+      {articles.slice(0, 3).map((article) => (
         <article
           key={article.id}
           className="flex flex-col md:flex-row shadow my-4">
           <Link href={`/articles/${article.id}`} className="flex-1">
-            <div className="hover:opacity-90 h-full">
+            <div className="opacity-90 hover:opacity-100 h-full">
               <Image
                 src={article.immagine_url}
                 width={1000}
@@ -68,7 +68,7 @@ export default function Articles({ articles }) {
         <Link href="/articles" legacyBehavior>
           <a className="w-full flex items-center justify-center p-4 rounded transition-all duration-500 relative group">
             <p className="text-telemagenta font-bold text-sm uppercase transition-all duration-500 hover:scale-110 hover:underline hover:text-polynesian-blue">
-              Visualizza tutti gli articoli
+              Altri articoli
             </p>
           </a>
         </Link>

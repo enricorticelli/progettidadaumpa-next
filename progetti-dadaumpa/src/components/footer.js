@@ -55,7 +55,7 @@ const Footer = ({ artists }) => {
           {artistImages.map((artist, index) => (
             <div key={index} className="w-80 h-80 relative">
               <img
-                className="w-80 h-80 object-cover"
+                className="w-80 h-80 object-cover opacity-90"
                 src={artist.image}
                 alt={artist.nome}
               />
