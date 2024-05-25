@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import About from "@/components/about";
+import Image from "next/image";
 import Link from "next/link";
 
 const Sidebar = ({ artists }) => {
@@ -14,35 +15,9 @@ const Sidebar = ({ artists }) => {
   }, [artists]);
 
   return (
-    <aside className="w-full md:w-1/3 flex flex-col items-center pl-3 py-6 pr-6">
-      <button className="w-full shadow flex flex-col items-center justify-center my-4 p-6 rounded transition-all duration-500 bg-gradient-to-t to-telemagenta from-polynesian-blue bg-size-200 bg-pos-0 hover:bg-pos-100 relative group">
-        <div className="flex items-center justify-center transition-transform duration-500">
-          <a
-            href="https://progettidadaumpa.us4.list-manage.com/subscribe?u=f1f70e82d8b5112a2025a24e4&id=5c31ce5444"
-            target="_blank"
-            className="text-xl text-white font-semibold text-center transition-transform duration-500 group-hover:translate-x-4 group-hover:scale-110">
-            Iscriviti alla Newsletter!
-          </a>
-          <svg
-            className="w-0 text-white opacity-0 transition-all duration-500 delay-200 group-hover:w-6 group-hover:opacity-100 group-hover:ml-12 group-hover:scale-110"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-            />
-          </svg>
-        </div>
-      </button>
-
+    <aside className="w-full md:w-1/3 flex flex-col items-center mt-10 pl-3 py-3 pr-6">
       <div className="w-full bg-white shadow flex flex-col my-4 p-6">
-        <p className="text-xl font-semibold pb-8">
-          Spettacoli in programmazione
-        </p>
+        <p className="text-xl font-semibold pb-8">Prossimi spettacoli</p>
         <div className="flex flex-col gap-6">
           {artistImages.map((artist, index) => (
             <div
@@ -67,15 +42,79 @@ const Sidebar = ({ artists }) => {
         <div className="flex justify-center w-full mt-4">
           <Link href="/articles" legacyBehavior>
             <a className="w-full flex items-center justify-center p-4 rounded transition-all duration-500 relative group">
-              <p className="text-telemagenta font-bold text-sm uppercase transition-all duration-500 hover:scale-110 hover:underline hover:text-polynesian-blue">
-                Altri spettacoli{" "}
+              <p className="text-telemagenta font-bold text-xs uppercase transition-all duration-500 hover:scale-110  hover:text-polynesian-blue">
+                Scopri tutti gli spettacoli{" "}
               </p>
             </a>
           </Link>
         </div>
       </div>
 
-      <About />
+      <div className="w-full bg-white shadow flex flex-col my-4 p-6">
+        <p className="text-xl font-semibold pb-5">Instagram</p>
+        <div className="grid grid-cols-3 gap-3">
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=2"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=3"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=4"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=5"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=6"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=7"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=8"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          <Image
+            src="https://source.unsplash.com/collection/1346951/150x150?sig=9"
+            width={150}
+            height={150}
+            className="hover:opacity-75"
+          />
+          {/* Aggiungi altre immagini di Instagram qui */}
+        </div>
+        <a
+          href="#"
+          className="w-full bg-gradient-to-r from-polynesian-blue to-telemagenta text-white font-bold text-sm rounded hover:bg-gradient-to-br flex items-center justify-center px-2 py-3 mt-6">
+          <i className="fab fa-instagram mr-2"></i> Segui @progettidadaumpa
+        </a>
+      </div>
     </aside>
   );
 };

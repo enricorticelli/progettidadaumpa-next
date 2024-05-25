@@ -10,6 +10,8 @@ import Sidebar from "@/components/sidebar";
 import Articles from "@/components/summary-articles";
 import ArticlesSkeleton from "@/components/skeletons/articles-skeleton";
 import SidebarSkeleton from "@/components/skeletons/sidebar-skeleton";
+import About from "@/components/about";
+import Slideshow from "@/components/slideshow";
 
 const queryClient = new QueryClient();
 
@@ -47,7 +49,7 @@ function Home() {
 
   if (artistIsLoading || artistError || articleIsLoading || articleError) {
     return (
-      <Layout artists={[]} isHome={true}>
+      <Layout artists={[]}>
         <ArticlesSkeleton />
         <SidebarSkeleton />
       </Layout>
@@ -55,9 +57,11 @@ function Home() {
   }
 
   return (
-    <Layout artists={artistData.artists} isHome={true}>
+    <Layout artists={artistData.artists}>
       <Articles articles={articleData.articles} />
       <Sidebar artists={artistData.artists} />
+      <About />
+      <Slideshow artists={artistData.artists} />
     </Layout>
   );
 }

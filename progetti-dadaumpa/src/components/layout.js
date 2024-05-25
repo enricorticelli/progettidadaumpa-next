@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 const mont = Montserrat({ subsets: ["latin"] });
 
-export default function Layout({ children, artists, isHome }) {
+export default function Layout({ children, artists }) {
   return (
     <>
       <Head>
@@ -16,12 +16,8 @@ export default function Layout({ children, artists, isHome }) {
         {/* Add meta tags */}
         {/* Add any other meta tags or link tags as needed */}
       </Head>
+      <Header />
       <main className={`container mx-auto flex flex-wrap ${mont.className}`}>
-        <Header isHome={isHome} />
-        {/* Spacer for non-home pages */}
-        {!isHome && (
-          <div className="container mx-auto flex flex-wrap h-20"></div>
-        )}
         {children}
         <Footer artists={artists} />
       </main>

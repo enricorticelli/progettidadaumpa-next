@@ -2,39 +2,41 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Newsletter from "./newsletter";
 import sanitizeHtml from "sanitize-html";
 
 import { formatDate } from "@/app/utils";
 
 export default function Articles({ articles }) {
   return (
-    <section className="w-full md:w-2/3 flex flex-col items-center pr-3 py-3 pl-8">
+    <section className="w-full md:w-2/3 flex flex-col items-center md:mt-10 px-3 pt-3">
+      <Newsletter />
       {articles.slice(0, 3).map((article) => (
         <article
           key={article.id}
-          className="flex flex-col md:flex-row shadow my-4">
-          <Link href={`/articles/${article.id}`} className="flex-1">
-            <div className="opacity-90 hover:opacity-100 h-full">
+          className="flex flex-col shadow my-4 w-full md:flex-row ">
+          <div className="md:order-1 md:w-1/2 opacity-90 hover:opacity-100">
+            <Link href={`/articles/${article.id}`}>
               <Image
                 src={article.immagine_url}
-                width={1000}
+                width={300}
                 height={200}
-                className="w-full h-full max-w-100px object-cover"
+                style={{ height: "100%", width: "100%", objectFit: "cover" }}
               />
-            </div>
-          </Link>
-          <div className="bg-white flex flex-col justify-start p-6 flex-1">
-            <Link href={`/articles/${article.id}`} className="pb-4">
-              <span className="text-polynesian-blue text-sm font-bold uppercase">
-                {article.sottotitolo}
-              </span>
             </Link>
+          </div>
+          <div className="bg-white flex flex-col justify-start p-6 flex-1 md:order-2">
             <Link href={`/articles/${article.id}`} className="pb-1">
-              <span className="text-3xl font-bold hover:text-gray-700">
+              <span className="text-xl font-bold uppercase hover:text-gray-700">
                 {article.titolo}
               </span>
             </Link>
-            <p className="text-sm py-3">
+            <Link href={`/articles/${article.id}`} className="pb-">
+              <span className="text-polynesian-blue text-sm font-bold">
+                {article.sottotitolo}
+              </span>
+            </Link>
+            <p className="text-xs py-3 pb-6">
               Di{" "}
               <Link href={`/articles/${article.id}`}>
                 <span className="font-semibold hover:text-gray-800">
@@ -45,7 +47,7 @@ export default function Articles({ articles }) {
             </p>
             <Link href={`/articles/${article.id}`}>
               <div
-                className="pb-6"
+                className="pb-6 text-sm"
                 dangerouslySetInnerHTML={{
                   __html: sanitizeHtml(article.contenuto),
                 }}
@@ -53,7 +55,7 @@ export default function Articles({ articles }) {
               {/* Render HTML content safely */}
             </Link>
             <Link href={`/articles/${article.id}`}>
-              <span className="uppercase text-gray-800 hover:text-telemagenta ">
+              <span className="uppercase text-gray-800 text-xs hover:text-telemagenta">
                 Continua la lettura{" "}
                 <FontAwesomeIcon
                   icon={faArrowRight}
@@ -64,15 +66,6 @@ export default function Articles({ articles }) {
           </div>
         </article>
       ))}
-      <div className="flex justify-center w-full mb-4">
-        <Link href="/articles" legacyBehavior>
-          <a className="w-full flex items-center justify-center p-4 rounded transition-all duration-500 relative group">
-            <p className="text-telemagenta font-bold text-sm uppercase transition-all duration-500 hover:scale-110 hover:underline hover:text-polynesian-blue">
-              Altri articoli
-            </p>
-          </a>
-        </Link>
-      </div>
     </section>
   );
 }

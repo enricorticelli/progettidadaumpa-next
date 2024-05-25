@@ -24,7 +24,7 @@ body {
   }
 
   .text-dec-1 {
-    @apply underline decoration-telemagenta font-bold text-telemagenta;
+    @apply decoration-telemagenta font-bold text-telemagenta;
   }
 
   .text-dec-2 {
@@ -36,6 +36,6 @@ body {
   }
 
   .text-dec-3 {
-    @apply underline decoration-polynesian-blue font-bold text-polynesian-blue;
+    @apply decoration-polynesian-blue font-bold text-polynesian-blue;
   }
 }

@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       SELECT id, titolo, sottotitolo, 
       CASE 
         WHEN LENGTH(contenuto) <= 100 THEN contenuto
-        ELSE SUBSTRING(contenuto, 1, 250) || '...'
+        ELSE SUBSTRING(contenuto, 1, 150) || '...'
       END AS contenuto,
       autore, immagine_url, data_pubblicazione
       FROM articoli
