@@ -9,7 +9,7 @@ export default function Articles({ article }) {
   }
 
   return (
-    <section className="w-full md:w-2/3 flex flex-col items-center px-3">
+    <section className="w-full md:w-2/3 flex flex-col items-center px-3 pt-3 md:mt-10">
       <article className="flex flex-col shadow my-4">
         <Image
           src={article.immagine_url}
@@ -39,8 +39,8 @@ export default function Articles({ article }) {
       <div className="flex justify-center w-full mb-4">
         <Link href="/articles" legacyBehavior>
           <a className="w-full flex items-center justify-center p-4 rounded transition-all duration-500 relative group">
-            <p className="text-telemagenta font-bold text-sm uppercase transition-all duration-500 hover:scale-110 hover:underline hover:text-polynesian-blue">
-              Visualizza tutti gli articoli
+            <p className="text-telemagenta font-bold text-sm uppercase transition-all duration-500 hover:scale-110 hover:text-polynesian-blue">
+              Scopri tutti gli articoli
             </p>
           </a>
         </Link>

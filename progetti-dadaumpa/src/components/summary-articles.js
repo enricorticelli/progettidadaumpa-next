@@ -9,12 +9,12 @@ import { formatDate } from "@/app/utils";
 
 export default function Articles({ articles }) {
   return (
-    <section className="w-full md:w-2/3 flex flex-col items-center md:mt-10 px-3 pt-3">
+    <section className="w-full md:w-2/3 flex flex-col items-center md:mt-4 xl:mt-10 px-3 pt-3">
       <Newsletter />
-      {articles.slice(0, 3).map((article) => (
+      {articles.slice(0, 5).map((article) => (
         <article
           key={article.id}
-          className="flex flex-col shadow my-4 w-full md:flex-row ">
+          className="flex flex-col shadow my-4 w-full md:flex-row md:h-80">
           <div className="md:order-1 md:w-1/2 opacity-90 hover:opacity-100">
             <Link href={`/articles/${article.id}`}>
               <Image

@@ -22,7 +22,7 @@ export default function Blog({ articles }) {
     <>
       <Newsletter />
 
-      <section className="w-full px-3 pt-4 md:mt-14">
+      <section className="w-full px-3 pt-4 md:mt-10 xl:mt-14">
         {chunkedArticles.map((row, rowIndex) => (
           <div key={rowIndex} className="flex flex-col md:flex-row">
             {row.map((article) => (
@@ -36,11 +36,11 @@ export default function Blog({ articles }) {
                         src={article.immagine_url}
                         width={1000}
                         height={200}
-                        className="transition-all duration-300 ease-in-out max-h-[250px] object-cover"
+                        className="transition-all duration-300 ease-in-out lg:max-h-[200px] md:max-h-[100px] object-cover"
                       />
                     </span>
                   </Link>
-                  <div className="bg-white flex flex-col justify-start p-6 h-80">
+                  <div className="bg-white flex flex-col justify-start p-6 lg:h-96 xl:h-80">
                     <Link href={`/articles/${article.id}`} className="pb-1">
                       <span className="text-2xl font-bold hover:text-gray-700">
                         {article.titolo}
@@ -51,7 +51,7 @@ export default function Blog({ articles }) {
                         {article.sottotitolo}
                       </span>
                     </Link>
-                    <p className="text-sm pt-3 pb-6">
+                    <p className="text-xs pt-3 pb-6">
                       Di{" "}
                       <Link href={`/articles/${article.id}`}>
                         <span className="font-semibold hover:text-gray-800">

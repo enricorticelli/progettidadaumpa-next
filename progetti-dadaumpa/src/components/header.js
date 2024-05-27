@@ -1,28 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./navbar";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleMenuClick = (e) => {
-    e.preventDefault();
-    setOpen(!open);
-  };
-
   return (
     <>
       <header
@@ -36,11 +18,11 @@ const Header = () => {
               src="/images/logo.png"
               width={300}
               height={300}
-              className="hover:scale-110 transition-all duration-500 p-16 md:p-0"
+              className="hover:scale-110 transition-all duration-500 p-16 md:pt-32 xl:p-0"
             />
           </a>
         </div>
-        <button className="absolute hidden sm:block left-1/2 transform -translate-x-1/2 bottom-[50px] w-auto px-24 shadow flex flex-col items-center justify-center my-4 p-6 rounded transition-all duration-500 bg-gradient-to-t to-telemagenta from-polynesian-blue bg-size-200 bg-pos-0 hover:bg-pos-100 relative group hover:scale-110">
+        <button className="absolute hidden md:block left-1/2 transform -translate-x-1/2 xl:bottom-[55px] md:bottom-[-35px] w-auto px-24 shadow flex flex-col items-center justify-center my-4 p-6 rounded transition-all duration-500 bg-gradient-to-t to-telemagenta from-polynesian-blue bg-size-200 bg-pos-0 hover:bg-pos-100 relative group hover:scale-110">
           <div className="flex items-center justify-center transition-transform duration-500">
             <a
               href="https://progettidadaumpa.us4.list-manage.com/subscribe?u=f1f70e82d8b5112a2025a24e4&id=5c31ce5444"
@@ -65,75 +47,7 @@ const Header = () => {
         </button>
       </header>
 
-      {/* Topic Nav */}
-      <nav
-        className={`w-full py-4 fixed top-0 left-0 z-10 transition-all duration-400 ${
-          scrolled ? "bg-gray-100" : "bg-transparent text-gray-100"
-        }`}>
-        <div className="block sm:hidden">
-          <a
-            href="#"
-            className="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
-            onClick={handleMenuClick}>
-            Menu{" "}
-            <FontAwesomeIcon
-              icon={open ? faChevronDown : faChevronUp}
-              className="ml-2"
-            />
-          </a>
-        </div>
-        <div
-          className={`${
-            open ? "block" : "hidden"
-          } w-full flex-grow sm:flex sm:items-center sm:w-auto`}>
-          <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <a
-              className={`font-bold text-gray-800 hover:text-gray-700 ${
-                scrolled ? "logo-scrolled" : ""
-              }`}
-              href="/">
-              {scrolled && (
-                <Image
-                  src="/images/logoquadrato.png"
-                  width={30}
-                  height={30}
-                  className="hover:scale-110 transition-all duration-400 mx-4 hidden sm:block"
-                />
-              )}
-            </a>
-            <a
-              href="/"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
-              Home
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
-              Spettacoli
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
-              Artisti
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
-              Chi Siamo
-            </a>
-            <a
-              href="#"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
-              Contatti
-            </a>
-            <a
-              href="/articles"
-              className="hover:text-white hover:bg-telemagenta rounded py-2 px-4 mx-2 transition-all duration-300">
-              Blog
-            </a>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
     </>
   );
 };

@@ -3,14 +3,14 @@ import Link from "next/link";
 export default function About() {
   return (
     <div className="w-full flex flex-col md:flex-row p-6 my-16">
-      <div className="md:w-3/4 lg:w-4/5">
+      <div className="w-full lg:w-1/2 xl:w-4/5">
         <p className="text-xl font-semibold pb-5">Chi siamo</p>
         <p className="pb-2">
           <p>
             <p>
               Siamo la <span className="text-dec-2">Progetti DADAUMPA Srl</span>
               , attivi nel mondo del teatro dal{" "}
-              <span className="text-dec-1">1984</span>.
+              <span className="text-dec-2">1984</span>.
             </p>{" "}
             <br></br>
             <p>
@@ -26,13 +26,14 @@ export default function About() {
               Collaboriamo con artisti e compagnie di prestigio per garantire
               sempre alta qualità nelle nostre produzioni. Con passione e
               competenza, continuiamo a offrirvi{" "}
-              <span className="text-dec-3">il meglio del teatro</span>.
+              <span className="text-dec-2">il meglio del teatro</span>.
             </p>
             <br></br>
             <p>
-              Negli anni abbiamo avuto il privilegio di collaborare con
-              importanti artisti e compagnie, mantenendo sempre la mia
-              attenzione sulla qualità delle produzioni.
+              Negli anni abbiamo avuto il privilegio di collaborare con{" "}
+              <span className="text-dec-2">importanti artisti e compagnie</span>
+              , mantenendo sempre la nostra attenzione sulla qualità delle
+              produzioni.
             </p>
             <div className="flex justify-center w-full mt-4">
               <Link href="/articles" legacyBehavior>
@@ -46,9 +47,9 @@ export default function About() {
           </p>
         </p>
       </div>
-      <div className="md:w-1/4 lg:w-1/5 flex justify-center">
+      <div className="w-full lg:w-1/2 xl:w-1/5 flex justify-center">
         <img
-          className="w-32 h-32 md:w-full md:h-full object-cover"
+          className="w-full h-full object-cover"
           src="/images/logoquadrato.png"
           alt="Logo Progetti Dadaumpa"
         />

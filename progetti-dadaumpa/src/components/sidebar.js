@@ -15,22 +15,23 @@ const Sidebar = ({ artists }) => {
   }, [artists]);
 
   return (
-    <aside className="w-full md:w-1/3 flex flex-col items-center mt-10 pl-3 py-3 pr-6">
-      <div className="w-full bg-white shadow flex flex-col my-4 p-6">
-        <p className="text-xl font-semibold pb-8">Prossimi spettacoli</p>
+    <aside className="w-full md:w-1/3 flex flex-col items-center mt-4 pl-3 pb-3 pr-6 pt-3 xl:mt-10">
+      <div className="w-full bg-white shadow flex flex-col my-4 p-4 lg:p-6">
+        <p className="text-xl font-semibold pb-8 pt-2">Prossimi spettacoli</p>
         <div className="flex flex-col gap-6">
           {artistImages.map((artist, index) => (
             <div
               key={index}
-              className="flex flex-row w-full relative opacity-80 hover:opacity-95 cursor-pointer hover:bg-gray-600 hover:bg-opacity-10 p-2">
-              <div className="w-1/5 h-auto relative mb-4 md:mb-0">
+              className="flex flex-col xl:flex-row w-full relative opacity-80 hover:opacity-95 cursor-pointer hover:bg-gray-600 hover:bg-opacity-10 p-0 lg:p-2">
+              <div className="w-full xl:w-1/5 h-auto relative mb-4 lg:mb-0">
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-full max-h-40 xl:h-full object-cover"
                   src={artist.image}
                   alt={artist.nome}
+                  style={{ aspectRatio: "1/1" }}
                 />
               </div>
-              <div className="w-4/5 flex flex-col justify-center pl-4">
+              <div className="w-full xl:w-4/5 flex flex-col justify-center pl-2 lg:pl-4">
                 <p className="text-lg font-semibold">{artist.nome}</p>
                 <p className="text-sm text-gray-500">Data: 24 Maggio 2024</p>
                 <p className="text-sm text-gray-500">Luogo: Teatro XYZ</p>
@@ -42,8 +43,8 @@ const Sidebar = ({ artists }) => {
         <div className="flex justify-center w-full mt-4">
           <Link href="/articles" legacyBehavior>
             <a className="w-full flex items-center justify-center p-4 rounded transition-all duration-500 relative group">
-              <p className="text-telemagenta font-bold text-xs uppercase transition-all duration-500 hover:scale-110  hover:text-polynesian-blue">
-                Scopri tutti gli spettacoli{" "}
+              <p className="text-telemagenta text-center font-bold text-xs uppercase transition-all duration-500 hover:scale-110 hover:text-polynesian-blue">
+                Scopri tutti gli spettacoli
               </p>
             </a>
           </Link>
