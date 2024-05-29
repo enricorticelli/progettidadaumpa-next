@@ -2,23 +2,22 @@
 
 import React from "react";
 import Image from "next/image";
+import ImageSlider from "./image-slider";
 import Navbar from "./navbar";
 
-const Header = () => {
+const Header = ({ images }) => {
   return (
     <>
-      <header
-        className="relative w-full 2xl:h-[700px] xl:h-[500px] bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage: 'url("/images/banner.gif")',
-        }}>
-        <div className="flex flex-col items-center justify-center h-full">
+      <header className="relative w-full 2xl:h-[700px] xl:h-[500px] bg-cover bg-center bg-fixed">
+        <ImageSlider images={images} />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full">
           <a className="font-bold text-gray-800 hover:text-gray-700" href="/">
             <Image
               src="/images/logo.png"
               width={300}
               height={300}
               className="hover:scale-110 transition-all duration-500 p-16 md:pt-32 xl:p-0"
+              alt="Logo"
             />
           </a>
         </div>

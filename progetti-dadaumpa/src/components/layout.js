@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 const mont = Montserrat({ subsets: ["latin"] });
 
-export default function Layout({ children, artists }) {
+export default function Layout({ children, images }) {
   return (
     <>
       <Head>
@@ -16,10 +16,10 @@ export default function Layout({ children, artists }) {
         {/* Add meta tags */}
         {/* Add any other meta tags or link tags as needed */}
       </Head>
-      <Header />
+      <Header images={images} />
       <main className={`container mx-auto flex flex-wrap ${mont.className}`}>
         {children}
-        <Footer artists={artists} />
+        <Footer />
       </main>
       <Analytics />
     </>

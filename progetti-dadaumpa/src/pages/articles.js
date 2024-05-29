@@ -45,9 +45,32 @@ function Home() {
     },
   });
 
-  if (artistIsLoading || artistError || articleIsLoading || articleError) {
+  const {
+    data: imagesData,
+    error: imagesError,
+    isLoading: imagesAreLoading,
+  } = useQuery({
+    queryKey: ["fetchImages"],
+    queryFn: async () => {
+      const response = await fetch("/api/fetchImages");
+      if (!response.ok) {
+        npm;
+        throw new Error("Failed to fetch images");
+      }
+      return response.json();
+    },
+  });
+
+  if (
+    artistIsLoading ||
+    artistError ||
+    articleIsLoading ||
+    articleError ||
+    imagesAreLoading ||
+    imagesError
+  ) {
     return (
-      <Layout artists={[]}>
+      <Layout images={[]}>
         <ArticlesSkeleton />
         <SidebarSkeleton />
       </Layout>
@@ -55,7 +78,7 @@ function Home() {
   }
 
   return (
-    <Layout artists={artistData.artists}>
+    <Layout images={imagesData.images}>
       <Blog articles={articleData.articles} />
     </Layout>
   );

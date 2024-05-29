@@ -15,7 +15,7 @@ const Sidebar = ({ artists }) => {
   }, [artists]);
 
   return (
-    <aside className="w-full md:w-1/3 flex flex-col items-center mt-4 pl-3 pb-3 pr-6 pt-3 xl:mt-10">
+    <aside className="w-full md:w-1/3 flex flex-col items-center mt-4 pl-3 pb-3 pr-3 pt-3 xl:mt-10">
       <div className="w-full bg-white shadow flex flex-col my-4 p-4 lg:p-6">
         <p className="text-xl font-semibold pb-8 pt-2">Prossimi spettacoli</p>
         <div className="flex flex-col gap-6">
